@@ -1,0 +1,48 @@
+<div [@dialog] *ngIf="visible" class="dialog">
+    <button *ngIf="closable" (click)="cancelAndClose()" aria-label="Close" class="dialog__close-btn">X</button>        
+    
+    <div *ngIf="visible && !todoItem.todo.completed" class="pure-form pure-form-stacked">
+        <fieldset>
+            <legend>Edit Task</legend>
+
+            <label for="title">Title</label>
+            <input 
+                id="title"
+                name="title"
+                class="edit"
+                [value]="todoItem.todo.title"
+                [(ngModel)]="todoItem.todo.title"
+                (keyup.enter)="saveAndClose()" 
+                (keyup.escape)="cancelAndClose()">
+
+            <label for="priority">Priority</label>
+            <select 
+                id="priority"
+                name="priority"
+                class="edit capitalize"
+                [(ngModel)]="todoItem.todo.priority">
+                <option *ngFor="let p of priorities" value="{{ p.val }}">{{ p.val }}</option>
+            </select>
+
+            <span type="submit" class="pure-button pure-button-primary" (click)="saveAndClose()">Save</span>
+        </fieldset>
+    </div>
+    
+    <div *ngIf="visible && todoItem.todo.completed" class="pure-form pure-form-stacked">
+        <fieldset>
+            <legend>Edit Task</legend>
+
+            <label for="completeddate">Date Completed</label>
+            <input 
+                id="completeddate" 
+                name="completeddate" 
+                type="date"
+                [value]="todoItem.todo.completedDate ? todoItem.todo.completedDate : now | date: 'yyyy-MM-dd'"
+                #completedDate>
+
+            <span type="submit" class="pure-button pure-button-primary" (click)="saveAndClose(completedDate)">Save</span>
+        </fieldset>
+    </div>
+
+</div>
+<div *ngIf="visible" class="overlay" (click)="cancelAndClose()"></div>

@@ -1,0 +1,26 @@
+<section class="todoapp">
+    <todo-header (itemAdded)="updateTrigger()"></todo-header>
+    <section class="main" *ngIf="getTodos().length">
+        <input class="toggle-all" type="checkbox" #toggleall [checked]="allCompleted()" (click)="setAllTo(toggleall)">
+        <ul class="todo-list">
+            <todo-item 
+                *ngFor="let todo of getTodos() | priority:priorities:trigger" 
+                [todo]="todo" 
+                (itemRemoved)="remove($event)" 
+                (itemModified)="update($event)"
+                (itemEdit)="edit($event)">
+            </todo-item>
+        </ul>
+    </section>
+
+    <app-dialog 
+        [(visible)]="showDialog" 
+        [todoItem]="todoItem"
+        [priorities]="pVals"
+        (visibleChange)="clearEdit()"
+        (closeEdit)="handleStopEdit()"
+        (cancelEdit)="clearEdit()">
+    </app-dialog>
+
+    <todo-footer></todo-footer>
+</section>

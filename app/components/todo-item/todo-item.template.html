@@ -1,0 +1,10 @@
+<li [class.completed]="todo.completed" [class.editing]="editing">
+    <div class="view">
+        <input class="toggle" type="checkbox" (click)="toggleCompletion()" [checked]="todo.completed">
+        <label (dblclick)="edit()" [ngClass]="[todo.priority]">
+            <span *ngIf="todo.completed" class="completed-date"><i>Completed: {{ todo.completedDate }}</i></span>
+            <span class="title">{{ todo.title | trim }}</span>
+        </label>
+        <button class="destroy" (click)="remove()"></button>
+    </div>
+</li>
