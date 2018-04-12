@@ -1,32 +1,24 @@
-# Angular 2 with ES2015 • [TodoMVC](http://todomvc.com)
+# Angular 2 with ES2015 • [TodoMVC](http://todomvc.com) - Extended (Coding Test)
 
-> Angular is a development platform for creating applications using modern web standards. Angular includes a wealth of essential features such as mobile gestures, animations, filtering, routing, data binding, security, internationalization, and beautiful UI components. It's extremely modular, lightweight, and easy to learn.
+## Extension highlights
 
-## Resources
-
-- [Website](https://angular.io/)
-- [Documentation](https://angular.io/docs/ts/latest/)
-
-### Articles
-
-- [Angular 2 Beta Announcement](http://angularjs.blogspot.co.uk/2015/12/angular-2-beta.html)
-
-### Support
-
-- [StackOverflow](http://stackoverflow.com/questions/tagged/angular2)
-- [Google Groups](https://groups.google.com/forum/#!forum/angular)
-- [Twitter](http://twitter.com/angularjs)
-- [Google+](https://plus.sandbox.google.com/+AngularJS/posts)
-
-*Let us [know](https://github.com/tastejs/todomvc/issues) if you discover anything worth sharing.*
+- Double-clicking a task entry opens a modal with more detailed edit options.
+- Tasks are sorted automatically by completion, completed date, priority, and title.
+- Task priorities are color coded: High = red, Medium = yellow, Low = green.
+- The user is prompted for a completed date upon task completion. The value defaults to today's date, but is optional and can be removed.
+- Mass completing tasks defaults completed dates to today's date. Unchecking a task as completed removes its completed date.
 
 ## Implementation
 
-This app was built using Babel, Webpack and Angular 2 beta. To make changes simply
+To run the app, use
 
-* `npm i`
-* `npm run dev`
+* `npm install --save`
+* `npm run start`
+
+http-server may need to be installed globally using
+
+* `npm install http-server -g`
 
 ## Credit
 
-Created by [Soós Gábor](http://github.com/blacksonic)
+Original credit to [Soós Gábor](http://github.com/blacksonic)
